@@ -19,7 +19,7 @@ node('appserver-cweb-2140')
   }
   stage('SonarQube Analysis')
   {
-    def scannerHome = tool 'SonarScanner';
+    def scannerHome = tool 'SonarQube';
     withSonarQubeEnv() {
       sh "${scannerHome}/bin/sonar-scanner"
     }
