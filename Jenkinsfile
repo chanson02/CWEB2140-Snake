@@ -5,6 +5,13 @@ node('appserver-cweb-2140')
   {
     checkout scm
   }
+  stage('Snyk Security Test') {
+    snykSecurity(
+      snykInstallation: 'Snyk',
+      snykTokenId: 'Snykid',
+      severity: 'high'
+    )
+  }
   stage('Build and Tag')
   {
     app = docker.build("hancooj/snake-game-cweb2140")
