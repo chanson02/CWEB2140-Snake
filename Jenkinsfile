@@ -21,7 +21,7 @@ node('appserver-cweb-2140')
   {
     def scannerHome = tool 'SonarQubeScanner';
     withSonarQubeEnv('SonarQube') {
-      sh "${scannerHome}/bin/sonar-scanner"
+      sh "${scannerHome}/bin/sonar-scanner -Dsonar.login=${env.SONAR_TOKEN}"
     }
   }
   stage('Push to Dockerhub')
