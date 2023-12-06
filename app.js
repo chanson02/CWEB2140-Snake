@@ -18,6 +18,10 @@ app.get('/', (request, response) => {
     response.sendFile('game.html', { root: path.join(__dirname, 'app/views') });
 });
 
+app.get('/cooper', (request, response) => {
+    response.sendFile('cooper.html', { root: path.join(__dirname, 'app/views') });
+});
+
 // Create the main controller
 const gameController = new GameController();
 gameController.listen(io);
